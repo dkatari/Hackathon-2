@@ -180,27 +180,7 @@ app.get('/success', (req, res) => {
   res.render('success');
 });
 
-app.get('/profile', (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
 
-  const userId = req.session.user.id;
-
-  pool.query('SELECT * FROM IndianCitizens WHERE user_id = ?', [userId], (err, results) => {
-    if (err) {
-      console.error('Error fetching data from the database:', err);
-      res.status(500).send('Internal Server Error');
-    } else {
-      const citizen = results[0];
-      res.render('profile', {
-        title: 'User Profile',
-        citizen,
-        stylesheets: ['styles.css']
-      });
-    }
-  });
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
