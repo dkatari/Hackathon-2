@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Quick ID SERVICE PORTAL</title>
+    <title>Login - Quick ID SERVICE PORTAL</title>
     <style>
         /* General Styles */
         body {
@@ -65,47 +65,54 @@
             height: calc(100vh - 80px); /* Adjusted for header height */
         }
 
-        /* Register Form Styles */
-        .register-container {
-            max-width: 800px;
+        /* Login Form Styles */
+        .login-container {
+            max-width: 600px; /* Increased max-width for a wider container */
             width: 100%;
             margin: 2em auto;
             padding: 2em;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .register-container h2 {
+        .login-container h2 {
             text-align: center;
             color: #007BFF;
             margin-bottom: 1em;
         }
 
-        .register-form .form-group {
+        .login-form {
+            width: 100%;
+        }
+
+        .login-form .form-group {
             margin-bottom: 1em;
         }
 
-        .register-form label {
+        .login-form label {
             display: block;
             margin-bottom: 0.5em;
             color: #333;
         }
 
-        .register-form input {
+        .login-form input {
             width: 100%;
             padding: 0.5em;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
 
-        .register-form .btn {
+        .login-form .btn {
             width: 100%;
             padding: 0.75em;
             margin-top: 1em;
         }
 
-        .login-link {
+        .create-link {
             text-align: center;
             margin-top: 1em;
             color: #007BFF;
@@ -113,7 +120,7 @@
             display: block;
         }
 
-        .login-link:hover {
+        .create-link:hover {
             text-decoration: underline;
         }
     </style>
@@ -122,32 +129,20 @@
     <header>
         <div class="header-container">
             <div class="header-left">
-                <img src="https://www.eci.gov.in/newimg/eci-logo.svg" alt="Quick ID Logo" class="logo">
+                <img src="https://github.com/dkatari/Hackathon-2/blob/main/QUICK%20ID.jpg?raw=true" alt="Quick ID Logo" class="logo">
                 <h1>Quick ID SERVICE PORTAL</h1>
             </div>
             <div class="header-right">
                 <button class="btn" onclick="window.location.href='/'">Home</button>
-                <button class="btn" onclick="window.location.href='/login'">Login</button>
+                <button class="btn" onclick="window.location.href='/register'">Register</button>
             </div>
         </div>
     </header>
     <main>
         <div class="content">
-            <div class="register-container">
-                <h2>Register</h2>
-                <form action="/register" method="post" class="register-form">
-                    <div class="form-group">
-                        <label for="first_name">First Name:</label>
-                        <input type="text" id="first_name" name="first_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name:</label>
-                        <input type="text" id="last_name" name="last_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dob">Date of Birth:</label>
-                        <input type="date" id="dob" name="dob" required>
-                    </div>
+            <div class="login-container">
+                <h2>Login</h2>
+                <form action="/login" method="post" class="login-form">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
@@ -156,9 +151,9 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn">Register</button>
+                    <button type="submit" class="btn">Login</button>
                 </form>
-                <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+                <a href="/register" class="create-link">Don't have an account? Create</a>
             </div>
         </div>
     </main>

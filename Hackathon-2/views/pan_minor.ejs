@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Indian Voter ID - Step 1</title>
+    <style>
+        .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    header a, header a:visited {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .logo {
+      float: left;
+      height: 50px;
+      margin-left: 20px;
+    }
+    nav {
+      float: right;
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-left: 15px;
+    }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+      background-color: #007BFF; /* ECI blue */
+      color: #fff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #0056b3 3px solid;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      margin-top: 50px; /* Adjust as needed */
+    }
+    .footer p {
+      margin: 0;
+    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .declaration-container {
+            width:auto;
+            height:auto;
+        }
+        /* .declaration-container input[type="checkbox"] {
+            float: right;
+            margin: 5px 0px;
+            width: 200px;
+        } */
+    </style>
+    <script>
+        function validateForm() {
+            const dateOfBirth = document.getElementById('date_of_birth').value;
+            const today = new Date();
+            const dob = new Date(dateOfBirth);
+            const age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                alert('You must be at least 18 years or Above.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="https://github.com/dkatari/Hackathon-2/blob/main/QUICK%20ID.jpg?raw=true" alt="Quick ID Logo" class="logo" height ="auto" width="150">
+                <h1> Quick ID Service Portal</h1>
+            </div>          <nav>
+            <ul>
+                <li><a href="/index">HOME</a></li>
+                <li><a href="/profile">PROFILE</a></li>
+            <li><a href="/logout">LOGOUT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <h1>Apply for PAN Card - Minor</h1>
+    <form action="/submitPanCardMinor" method="POST" onsubmit="return validateForm()">
+        <!-- Minor's Information -->
+        <table>
+            <tr>
+                <th colspan="2">Minor's Information</th>
+            </tr>
+            <tr>
+                <td><label for="minor_name">Minor's Name:</label></td>
+                <td><input type="text" name="minor_name" id="minor_name" required autocomplete="given-name" pattern="[A-Za-z ]+" title="Minor's name should only contain letters."></td>
+            </tr>
+            <tr>
+                <td><label for="date_of_birth">Date of Birth:</label></td>
+                <td><input type="date" name="date_of_birth" id="date_of_birth" required autocomplete="bday"></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender:</label></td>
+                <td>
+                    <select name="gender" id="gender" required autocomplete="sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Parent/Guardian Information -->
+        <table>
+            <tr>
+                <th colspan="2">Parent/Guardian Information</th>
+            </tr>
+            <tr>
+                <td><label for="parent_name">Parent/Guardian's Name:</label></td>
+                <td><input type="text" name="parent_name" id="parent_name" required autocomplete="given-name" pattern="[A-Za-z ]+" title="Parent/Guardian's name should only contain letters."></td>
+            </tr>
+            <tr>
+                <td><label for="parent_pan">Parent's PAN Card Number:</label></td>
+                <td><input type="text" name="parent_pan" id="parent_pan" required autocomplete="off" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter valid PAN card number."></td>
+            </tr>
+        </table>
+
+        <!-- Address Information -->
+        <table>
+            <tr>
+                <th colspan="2">Address Information</th>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea name="address" id="address" rows="3" required autocomplete="street-address"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="city">City/Town/Village:</label></td>
+                <td><input type="text" name="city" id="city" required autocomplete="address-level2" pattern="[A-Za-z ]+" title="City/Town/Village should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="district">District:</label></td>
+                <td><input type="text" name="district" id="district" required autocomplete="address-level2" pattern="[A-Za-z ]+" title="District should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td><input type="text" name="state" id="state" required autocomplete="address-level1" pattern="[A-Za-z ]+" title="State should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="pincode">Pin Code:</label></td>
+                <td><input type="text" name="pincode" id="pincode" required autocomplete="postal-code" pattern="\d{6}" title="Pin code should be 6 digits."></td>
+            </tr>
+        </table>
+
+        <!-- Contact Information -->
+        <table>
+            <tr>
+                <th colspan="2">Contact Information</th>
+            </tr>
+            <tr>
+                <td><label for="mobile_number">Mobile Number:</label></td>
+                <td><input type="tel" name="mobile_number" id="mobile_number" required autocomplete="tel" pattern="\d{10}" title="Mobile number should be 10 digits."></td>
+            </tr>
+            <tr>
+                <td><label for="email_address">Email Address:</label></td>
+                <td><input type="email" name="email_address" id="email_address" required autocomplete="email"></td>
+            </tr>
+        </table>
+
+        <!-- Identity Information -->
+        <table>
+            <tr>
+                <th colspan="2">Identity Information</th>
+            </tr>
+            <tr>
+                <td><label for="aadhaar_number">Aadhaar Number (Parent/Guardian):</label></td>
+                <td><input type="text" name="aadhaar_number" id="aadhaar_number" required autocomplete="off" pattern="\d{12}" title="Aadhaar number should be 12 digits."></td>
+            </tr>
+        </table>
+
+        <!-- Declaration -->
+        <table>
+            <tr>
+                <th>Declaration</th>
+            </tr>
+        </table>
+        <div class="declaration-container" style="overflow: hidden;">
+            <label for="declaration" style="margin-left: 10px; border-left:3px; padding-left:3px;">
+                <input style="width: 20px; height: 100%;" type="checkbox" name="declaration" id="declaration" value="1" required>
+                I hereby declare that the above information is true to the best of my knowledge and belief.
+            </label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="footer">
+        <p>&copy; 2024 QuickID. All rights reserved.</p>
+      </div>
+</body>
+</html>

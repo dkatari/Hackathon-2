@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Indian Voter ID - Step 1</title>
+    <style>
+        .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    header a, header a:visited {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .logo {
+      float: left;
+      height: 50px;
+      margin-left: 20px;
+    }
+    nav {
+      float: right;
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-left: 15px;
+    }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+      background-color: #007BFF; /* ECI blue */
+      color: #fff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #0056b3 3px solid;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      margin-top: 50px; /* Adjust as needed */
+    }
+    .footer p {
+      margin: 0;
+    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .declaration-container {
+            width:auto;
+            height:auto;
+        }
+        /* .declaration-container input[type="checkbox"] {
+            float: right;
+            margin: 5px 0px;
+            width: 200px;
+        } */
+    </style>
+    <script>
+        function validateForm() {
+            const dateOfBirth = document.getElementById('date_of_birth').value;
+            const today = new Date();
+            const dob = new Date(dateOfBirth);
+            const age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                alert('You must be at least 18 years or Above.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="https://github.com/dkatari/Hackathon-2/blob/main/QUICK%20ID.jpg?raw=true" alt="Quick ID Logo" class="logo" height ="auto" width="150">
+                <h1> Quick ID Service Portal</h1>
+            </div>          <nav>
+            <ul>
+              <li><a href="/index">HOME</a></li>
+          <li><a href="/logout">LOGOUT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <h1>Apply for Overseas Indian Voter ID</h1>
+    <form action="/submitOverseasVoterID" method="POST" onsubmit="return validateForm()">
+        <!-- Personal Information -->
+        <table>
+            <tr>
+                <th colspan="2">Personal Information</th>
+            </tr>
+            <tr>
+                <td><label for="first_name">First Name:</label></td>
+                <td><input type="text" name="first_name" id="first_name" required autocomplete="given-name" pattern="[A-Za-z]+" title="First name should only contain letters."></td>
+            </tr>
+            <tr>
+                <td><label for="middle_name">Middle Name:</label></td>
+                <td><input type="text" name="middle_name" id="middle_name" autocomplete="additional-name" pattern="[A-Za-z]*" title="Middle name should only contain letters."></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Last Name:</label></td>
+                <td><input type="text" name="last_name" id="last_name" required autocomplete="family-name" pattern="[A-Za-z]+" title="Last name should only contain letters."></td>
+            </tr>
+            <tr>
+                <td><label for="date_of_birth">Date of Birth:</label></td>
+                <td><input type="date" name="date_of_birth" id="date_of_birth" required autocomplete="bday"></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender:</label></td>
+                <td>
+                    <select name="gender" id="gender" required autocomplete="sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Parent/Guardian Information -->
+        <table>
+            <tr>
+                <th colspan="2">Parent/Guardian Information</th>
+            </tr>
+            <tr>
+                <td><label for="parent_guardian_name">Parent/Guardian's Name:</label></td>
+                <td><input type="text" name="parent_guardian_name" id="parent_guardian_name" required autocomplete="honorific-suffix" pattern="[A-Za-z ]+" title="Parent/Guardian's name should only contain letters and spaces."></td>
+            </tr>
+        </table>
+
+        <!-- Passport Information -->
+        <table>
+            <tr>
+                <th colspan="2">Passport Information</th>
+            </tr>
+            <tr>
+                <td><label for="passport_number">Passport Number:</label></td>
+                <td><input type="text" name="passport_number" id="passport_number" required pattern="[A-Za-z0-9]+" title="Passport number should contain only letters and numbers."></td>
+            </tr>
+            <tr>
+                <td><label for="passport_place_of_issue">Place of Issue:</label></td>
+                <td><input type="text" name="passport_place_of_issue" id="passport_place_of_issue" required pattern="[A-Za-z ]+" title="Place of issue should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="passport_date_of_issue">Date of Issue:</label></td>
+                <td><input type="date" name="passport_date_of_issue" id="passport_date_of_issue" required></td>
+            </tr>
+            <tr>
+                <td><label for="passport_date_of_expiry">Date of Expiry:</label></td>
+                <td><input type="date" name="passport_date_of_expiry" id="passport_date_of_expiry" required></td>
+            </tr>
+        </table>
+
+        <!-- Overseas Address Information -->
+        <table>
+            <tr>
+                <th colspan="2">Overseas Address Information</th>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_house_number">House Number:</label></td>
+                <td><input type="number" name="overseas_address_house_number" id="overseas_address_house_number" required></td>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_street">Street/Area:</label></td>
+                <td><input type="text" name="overseas_address_street" id="overseas_address_street" required></td>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_city">City/Town/Village:</label></td>
+                <td><input type="text" name="overseas_address_city" id="overseas_address_city" required pattern="[A-Za-z ]+" title="City/Town/Village should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_state">State:</label></td>
+                <td><input type="text" name="overseas_address_state" id="overseas_address_state" required pattern="[A-Za-z ]+" title="State should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_country">Country:</label></td>
+                <td><input type="text" name="overseas_address_country" id="overseas_address_country" required pattern="[A-Za-z ]+" title="Country should only contain letters and spaces."></td>
+            </tr>
+            <tr>
+                <td><label for="overseas_address_postal_code">Postal Code:</label></td>
+                <td><input type="text" name="overseas_address_postal_code" id="overseas_address_postal_code" required pattern="[0-9]+" title="Postal code should contain only numbers."></td>
+            </tr>
+        </table>
+
+        <!-- Contact Information -->
+        <table>
+            <tr>
+                <th colspan="2">Contact Information</th>
+            </tr>
+            <tr>
+                <td><label for="mobile_number">Mobile Number:</label></td>
+                <td><input type="tel" name="mobile_number" id="mobile_number" required pattern="\d{10}" title="Mobile number should be 10 digits."></td>
+            </tr>
+            <tr>
+                <td><label for="email_address">Email Address:</label></td>
+                <td><input type="email" name="email_address" id="email_address" required></td>
+            </tr>
+        </table>
+
+        <!-- Declaration -->
+        <table>
+            <tr>
+                <th>Declaration</th>
+            </tr>
+        </table>
+        <div class="declaration-container" style="overflow: hidden;">
+            <label for="declaration" style="margin-left: 10px; border-left:3px; padding-left:3px;">
+                <input style="width: 20px; height: 100%;" type="checkbox" name="declaration" id="declaration" value="1" required>
+                I here by declare that the above information is true to the best of my knowledge.
+            </label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="footer">
+        <p>&copy; 2024 QuickID. All rights reserved.</p>
+      </div>
+</body>
+</html>

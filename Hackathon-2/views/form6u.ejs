@@ -57,9 +57,26 @@
             width: auto;
             height: auto;
         }
+        .header-left{
+            text-align: left;
+        }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="https://github.com/dkatari/Hackathon-2/blob/main/QUICK%20ID.jpg?raw=true" alt="Quick ID Logo" class="logo" height ="auto" width="150">
+                <h1> Quick ID Service Portal</h1>
+            </div>          <nav>
+            <ul>
+              <li><a href="/index">HOME</a></li>
+          <li><a href="/logout">LOGOUT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
     <h1>Upload Photos and Signature</h1>
     <form action="/submitindianvoterid-upload" method="POST" enctype="multipart/form-data">
         <!-- Passport-size photo -->
@@ -97,5 +114,8 @@
 
         <button type="submit">Submit</button>
     </form>
+    <div class="footer">
+        <p>&copy; 2024 QuickID. All rights reserved.</p>
+      </div>
 </body>
 </html>
