@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photos and Signature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 80%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            display: block;
+        }
+        input[type="file"] {
+            width: auto; /* Reset width to default */
+            margin-top: 5px;
+        }
+        input[type="file"]::file-selector-button {
+            padding: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .declaration-container {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Photos and Signature</h1>
+    <form action="/submitindianvoterid-upload" method="POST" enctype="multipart/form-data">
+        <!-- Passport-size photo -->
+        <table>
+            <tr>
+                <th colspan="2">Passport-size Photo</th>
+            </tr>
+            <tr>
+                <td><label for="passport_photo">Upload Passport-size Photo:</label></td>
+                <td><input type="file" name="passport_photo" id="passport_photo" accept="image/*" required></td>
+            </tr>
+        </table>
+
+        <!-- Aadhar card photo -->
+        <table>
+            <tr>
+                <th colspan="2">Aadhar Card Photo</th>
+            </tr>
+            <tr>
+                <td><label for="aadhar_photo">Upload Aadhar Card Photo:</label></td>
+                <td><input type="file" name="aadhar_photo" id="aadhar_photo" accept="image/*" required></td>
+            </tr>
+        </table>
+
+        <!-- Signature photo -->
+        <table>
+            <tr>
+                <th colspan="2">Signature Photo</th>
+            </tr>
+            <tr>
+                <td><label for="signature_photo">Upload Signature Photo:</label></td>
+                <td><input type="file" name="signature_photo" id="signature_photo" accept="image/*" required></td>
+            </tr>
+        </table>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

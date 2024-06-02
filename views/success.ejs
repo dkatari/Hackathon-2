@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation Page</title>
+  <style>
+    /* Define any additional styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    header {
+      background-color: #007BFF; /* ECI blue */
+      color: #fff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #0056b3 3px solid;
+    }
+    header a, header a:visited {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-right: 15px;
+    }
+    .logo {
+      float: left;
+      height: 50px;
+      margin-left: 20px;
+    }
+    nav {
+      float: right;
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-left: 15px;
+    }
+    .hero {
+      background: #f4f4f4;
+      padding: 50px;
+      margin-bottom: 20px;
+      border-top: #007BFF 4px solid;
+    }
+    .hero h1 {
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .section h2 {
+      color: #007BFF;
+      margin-top: 0;
+    }
+    .section p {
+      line-height: 1.6;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      margin-top: 50px; /* Adjust as needed */
+    }
+    .footer p {
+      margin: 0;
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .options .option {
+      width: 30%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .options .option a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .options .option a:hover {
+      text-decoration: underline;
+    }
+    /* Center and resize the image */
+    .image {
+      text-align: center;
+      margin: 50px 0;
+    }
+    .image img {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+    }
+    /* Style the home button and text */
+    .homebutton {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .homebutton:hover {
+      background-color: #0056b3;
+    }
+    .home-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="https://www.eci.gov.in/newimg/eci-logo.svg" alt="QuickID Logo" class="logo">
+      <nav>
+        <ul>
+          <li><a href="/index">Home</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="image">
+    <img src="https://media.istockphoto.com/id/1094780808/vector/approval-symbol-check-mark-in-a-circle-drawn-by-hand-vector-green-sign-ok-approval-or.jpg?s=612x612&w=0&k=20&c=0mlB50r769kHmLkVcq_HpdNFGdHIA_Cu_tPqN4IKZbc=" alt="Approval Symbol">
+    <p>Application Submitted successfully</p>
+  </div>
+
+  <div class="home-text">
+    <a href="/index" class="homebutton">Home</a>
+    <p>Click here to return to home page</p>
+  </div>
+
+</body>
+</html>
